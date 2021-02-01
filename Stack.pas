@@ -6,9 +6,9 @@ type
         prev : cellptr;
         data : integer;
     end;
-        
 var
     last : ^cell;
+    c : integer;
     
 procedure push(num: integer);
 var newCell : ^cell;
@@ -25,12 +25,16 @@ begin
     last := last^.prev;
     pull := ret;
 end;
+
 begin
-  push(10);
-  push(13);
-  push(17);
-  writeln (pull());
-  writeln (pull());
-  writeln (pull());
+    while not SeekEof do
+        begin
+            read(c);
+            push(c);
+        end;
+    while True do
+        begin
+            writeln (pull());
+        end;
 end.
 
