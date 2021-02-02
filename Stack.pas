@@ -27,14 +27,16 @@ begin
 end;
 
 begin
+    last := nil;
     while not SeekEof do
         begin
             read(c);
             push(c);
         end;
-    while True do
+    while last^.prev <> nil do
         begin
             writeln (pull());
         end;
+    writeln (pull());
 end.
 
